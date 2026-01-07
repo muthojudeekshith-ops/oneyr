@@ -65,15 +65,25 @@ function petals(){
 }
 
 /* 🖼️ Memories images */
-const track = document.getElementById('memoryTrack');
+document.addEventListener('DOMContentLoaded', () => {
 
-for(let i=1;i<=14;i++){
-  const img = document.createElement('img');
-  img.src = `memories/m${i}.jpg`;
-  track.appendChild(img);
-}
-for(let i=1;i<=14;i++){
-  const img = document.createElement('img');
-  img.src = `memories/m${i}.jpg`;
-  track.appendChild(img);
-}
+  const track = document.getElementById('memoryTrack');
+  if(!track) return;
+
+  for(let i=1;i<=14;i++){
+    const img = document.createElement('img');
+    img.src = `memories/m${i}.jpg`;
+    img.alt = `Memory ${i}`;
+    track.appendChild(img);
+  }
+
+  // duplicate for infinite scroll
+  for(let i=1;i<=14;i++){
+    const img = document.createElement('img');
+    img.src = `memories/m${i}.jpg`;
+    img.alt = `Memory ${i}`;
+    track.appendChild(img);
+  }
+
+});
+
