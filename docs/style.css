@@ -1,1 +1,101 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Georgia',serif;
+}
+
+body{
+  background:#0b0b14;
+  color:#fff;
+  height:100vh;
+  overflow:hidden;
+}
+
+.screen{
+  display:none;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  height:100vh;
+  padding:20px;
+  text-align:center;
+  position:relative;
+}
+
+.active{display:flex}
+
+button{
+  background:#fff;
+  color:#000;
+  border:none;
+  padding:12px 22px;
+  border-radius:25px;
+  cursor:pointer;
+  margin-top:25px;
+}
+
+.bottom-right{
+  position:absolute;
+  bottom:20px;
+  right:20px;
+}
+
+.countdown{
+  font-size:28px;
+  margin-top:20px;
+}
+
+input{
+  padding:12px;
+  border-radius:10px;
+  border:none;
+  font-size:18px;
+  margin-top:15px;
+}
+
+.book{
+  background:#f4f1ec;
+  color:#333;
+  width:90%;
+  max-width:600px;
+  padding:40px;
+  border-radius:10px;
+}
+
+.card-container{
+  display:flex;
+  gap:20px;
+  overflow-x:auto;
+}
+
+.card{
+  min-width:220px;
+  background:#1a1a2e;
+  padding:20px;
+  border-radius:15px;
+}
+
+.fade-list span{
+  display:block;
+  opacity:0;
+  animation:fadeIn 1s forwards;
+}
+
+@keyframes fadeIn{
+  to{opacity:1}
+}
+
+.petal{
+  position:absolute;
+  top:-20px;
+  font-size:18px;
+  animation:fall linear infinite;
+}
+
+@keyframes fall{
+  to{
+    transform:translateY(110vh) rotate(360deg);
+  }
+}
 
