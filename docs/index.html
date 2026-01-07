@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Midnight Surprise</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Midnight Surprise</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -23,7 +23,7 @@
 <!-- SCREEN 2 -->
 <div class="screen" id="s2">
   <h2>Security Check</h2>
-  <input type="password" id="pass" placeholder="Enter password">
+  <input id="pass" type="password" placeholder="Enter password">
   <button onclick="checkPass()">Unlock</button>
 </div>
 
@@ -39,7 +39,7 @@
     <h2>The Beginning</h2>
     <p>
       It started with small moments… conversations that felt easy,
-      smiles that felt safe, and a connection that quietly grew into love.
+      smiles that felt safe, and love that quietly grew.
     </p>
   </div>
   <button class="bottom-right" onclick="next(5)">Open Next Page 📖</button>
@@ -60,7 +60,9 @@
 <!-- SCREEN 6 -->
 <div class="screen" id="s6">
   <h2>Memories</h2>
-  <div class="card-container" id="memoryCards"></div>
+  <div class="memory-wrapper">
+    <div class="memory-track" id="memoryTrack"></div>
+  </div>
   <button class="bottom-right" onclick="next(7)">Open Next Page 📖</button>
 </div>
 
@@ -88,11 +90,9 @@
   <h2>This is just the beginning…</h2>
   <p>I promise to choose you every day.</p>
   <p>One year done… infinity to go ♾️</p>
-
   <div id="finalMsg">
     <h1>Happy ONE YEAR ANNIVERSARY, MY LOVE ❤️</h1>
   </div>
-
   <button class="bottom-right" onclick="replay()">Replay 🔁➰</button>
 </div>
 
