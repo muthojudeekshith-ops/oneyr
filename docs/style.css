@@ -52,6 +52,7 @@ input{
   border:none;
   font-size:18px;
   margin-top:15px;
+  outline:none;
 }
 
 .book{
@@ -79,6 +80,7 @@ input{
 .fade-list span{
   display:block;
   opacity:0;
+  font-size:20px;
   animation:fadeIn 1s forwards;
 }
 
@@ -91,6 +93,7 @@ input{
   top:-20px;
   font-size:18px;
   animation:fall linear infinite;
+  pointer-events:none;
 }
 
 @keyframes fall{
@@ -98,4 +101,3 @@ input{
     transform:translateY(110vh) rotate(360deg);
   }
 }
-
