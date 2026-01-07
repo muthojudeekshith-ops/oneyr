@@ -1,26 +1,29 @@
-*{
+/* 🔒 GLOBAL SCROLL LOCK */
+html, body{
   margin:0;
   padding:0;
-  box-sizing:border-box;
-  font-family:'Georgia',serif;
+  height:100%;
+  overflow:hidden;
+  overscroll-behavior:none;
+  touch-action:none;
+  font-family:Georgia, serif;
 }
 
 body{
   background:#0b0b14;
   color:#fff;
-  height:100vh;
-  overflow:hidden;
 }
 
 .screen{
   display:none;
+  height:100vh;
+  width:100vw;
+  padding:20px;
+  box-sizing:border-box;
   align-items:center;
   justify-content:center;
   flex-direction:column;
-  height:100vh;
-  padding:20px;
   text-align:center;
-  position:relative;
 }
 
 .active{display:flex}
@@ -32,7 +35,7 @@ button{
   padding:12px 22px;
   border-radius:25px;
   cursor:pointer;
-  margin-top:25px;
+  font-size:16px;
 }
 
 .bottom-right{
@@ -41,20 +44,18 @@ button{
   right:20px;
 }
 
-.countdown{
-  font-size:28px;
-  margin-top:20px;
-}
+.countdown{font-size:28px;margin-top:20px}
 
 input{
   padding:12px;
   border-radius:10px;
   border:none;
+  text-align:center;
   font-size:18px;
   margin-top:15px;
-  outline:none;
 }
 
+/* Book */
 .book{
   background:#f4f1ec;
   color:#333;
@@ -64,10 +65,12 @@ input{
   border-radius:10px;
 }
 
+/* Cards */
 .card-container{
   display:flex;
   gap:20px;
   overflow-x:auto;
+  padding:20px;
 }
 
 .card{
@@ -77,27 +80,51 @@ input{
   border-radius:15px;
 }
 
+/* Fade list */
 .fade-list span{
   display:block;
   opacity:0;
-  font-size:20px;
   animation:fadeIn 1s forwards;
 }
 
-@keyframes fadeIn{
-  to{opacity:1}
-}
+@keyframes fadeIn{to{opacity:1}}
 
+/* 🌹 Petals */
 .petal{
   position:absolute;
-  top:-20px;
+  top:-10px;
   font-size:18px;
   animation:fall linear infinite;
-  pointer-events:none;
+}
+@keyframes fall{
+  to{transform:translateY(110vh) rotate(360deg)}
 }
 
-@keyframes fall{
-  to{
-    transform:translateY(110vh) rotate(360deg);
-  }
+/* 🖼️ MEMORIES (RIGHT ➝ LEFT) */
+.memory-wrapper{
+  width:100%;
+  overflow:hidden;
+  margin-top:30px;
+  touch-action:pan-x;
+}
+
+.memory-track{
+  display:flex;
+  gap:20px;
+  animation:memScrollRTL 90s linear infinite;
+}
+
+.memory-track img{
+  height:280px;
+  border-radius:18px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.5);
+}
+
+@keyframes memScrollRTL{
+  from{transform:translateX(0)}
+  to{transform:translateX(-50%)}
+}
+
+.memory-wrapper:hover .memory-track{
+  animation-play-state:paused;
 }
