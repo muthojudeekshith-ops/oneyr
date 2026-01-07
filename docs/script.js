@@ -1,37 +1,28 @@
-// 🔧 CHANGE DATE LATER
+/* CONFIG */
 const UNLOCK_DATE = new Date('2026-01-08T00:00:00');
 const PASSWORD = 'c5d9';
-
 let unlocked = false;
 
 const screens = document.querySelectorAll('.screen');
 const music = document.getElementById('bgMusic');
-const finalMsg = document.getElementById('finalMsg');
 
-// Screen switch
+/* Navigation */
 function show(id){
-  screens.forEach(s => s.classList.remove('active'));
+  screens.forEach(s=>s.classList.remove('active'));
   document.getElementById('s'+id).classList.add('active');
 
-  if(id >= 4){
-    music.play().catch(()=>{});
-  }
+  if(id >= 4) music.play();
 
   if(id === 9){
     petals();
-    setTimeout(()=>{
-      finalMsg.style.display = 'block';
-    },2000);
+    setTimeout(()=>finalMsg.style.display='block',2000);
   }
 }
 
-function next(id){
-  show(id);
-}
+function next(id){ show(id); }
 
-// Password check
 function checkPass(){
-  if(document.getElementById('pass').value === PASSWORD){
+  if(pass.value === PASSWORD){
     unlocked = true;
     show(3);
   }else{
@@ -39,48 +30,50 @@ function checkPass(){
   }
 }
 
-// Replay
 function replay(){
   music.currentTime = 0;
   finalMsg.style.display = 'none';
   show(3);
 }
 
-// ⏳ Countdown (FIXED)
+/* Countdown */
 setInterval(()=>{
   if(unlocked) return;
 
-  const now = new Date();
-  const diff = UNLOCK_DATE - now;
+  const diff = UNLOCK_DATE - new Date();
 
   if(diff <= 0){
     show(2);
   }else{
-    const h = Math.floor(diff / 36e5);
-    const m = Math.floor(diff % 36e5 / 6e4);
-    const s = Math.floor(diff % 6e4 / 1000);
-    document.getElementById('timer').innerText =
-      `${h}h ${m}m ${s}s`;
+    const h = Math.floor(diff/36e5);
+    const m = Math.floor(diff%36e5/6e4);
+    const s = Math.floor(diff%6e4/1000);
+    timer.innerText = `${h}h ${m}m ${s}s`;
   }
 },1000);
 
-// 🖼️ Memories (14)
-const memoryBox = document.getElementById('memoryCards');
-for(let i=1;i<=14;i++){
-  const div = document.createElement('div');
-  div.className = 'card';
-  div.innerText = 'Memory ' + i;
-  memoryBox.appendChild(div);
-}
-
-// 🌹 Petals
+/* 🌹 Petals */
 function petals(){
   for(let i=0;i<25;i++){
     const p = document.createElement('div');
     p.className = 'petal';
-    p.innerText = '🌹';
-    p.style.left = Math.random()*100 + 'vw';
-    p.style.animationDuration = 5 + Math.random()*5 + 's';
+    p.innerText = '💐🌹';
+    p.style.left = Math.random()*100+'vw';
+    p.style.animationDuration = 5+Math.random()*5+'s';
     document.body.appendChild(p);
   }
+}
+
+/* 🖼️ Memories images */
+const track = document.getElementById('memoryTrack');
+
+for(let i=1;i<=14;i++){
+  const img = document.createElement('img');
+  img.src = `memories/m${i}.jpg`;
+  track.appendChild(img);
+}
+for(let i=1;i<=14;i++){
+  const img = document.createElement('img');
+  img.src = `memories/m${i}.jpg`;
+  track.appendChild(img);
 }
