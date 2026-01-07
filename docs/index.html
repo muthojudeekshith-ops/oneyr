@@ -4,78 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Midnight Surprise</title>
-  <style>
-    *{margin:0;padding:0;box-sizing:border-box;font-family:'Georgia',serif}
-    body{
-      background:#0b0b14;
-      color:#fff;
-      height:100vh;
-      overflow:hidden;
-    }
-    .screen{display:none;align-items:center;justify-content:center;flex-direction:column;height:100vh;padding:20px;text-align:center}
-    .active{display:flex}
-    h1,h2,h3{font-weight:500}
-    button{
-      background:#fff;
-      color:#000;
-      border:none;
-      padding:12px 22px;
-      border-radius:25px;
-      cursor:pointer;
-      margin-top:25px;
-      font-size:16px
-    }
-    button.bottom-right{
-      position:absolute;
-      bottom:20px;
-      right:20px
-    }
-    .countdown{font-size:28px;margin-top:20px}
-    input{
-      padding:12px;
-      border-radius:10px;
-      border:none;
-      text-align:center;
-      font-size:18px;
-      margin-top:15px
-    }
-    /* book style */
-    .book{
-      background:#f4f1ec;
-      color:#333;
-      width:90%;
-      max-width:600px;
-      padding:40px;
-      border-radius:10px;
-      box-shadow:0 10px 30px rgba(0,0,0,.4)
-    }
-    .card-container{display:flex;overflow-x:auto;gap:20px;padding:20px}
-    .card{
-      min-width:220px;
-      background:#1a1a2e;
-      padding:20px;
-      border-radius:15px
-    }
-    .fade-list span{display:block;opacity:0;animation:fadeIn 1s forwards}
-    @keyframes fadeIn{to{opacity:1}}
-    /* petals */
-    .petal{position:absolute;top:-10px;color:pink;font-size:18px;animation:fall linear infinite}
-    @keyframes fall{to{transform:translateY(110vh) rotate(360deg)}}
-  </style>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <!-- MUSIC -->
 <audio id="bgMusic" loop>
   <source src="music.mp3" type="audio/mpeg">
 </audio>
-
-<!-- CONFIG -->
-<script>
-  // 🔧 CHANGE DATE HERE LATER
-  const UNLOCK_DATE = new Date('2026-01-08T00:00:00');
-  const PASSWORD = 'c5d9';
-</script>
 
 <!-- SCREEN 1 -->
 <div class="screen active" id="s1">
@@ -86,7 +25,7 @@
 <!-- SCREEN 2 -->
 <div class="screen" id="s2">
   <h2>Security Check</h2>
-  <input type="password" id="pass" placeholder="Enter password" />
+  <input type="password" id="pass" placeholder="Enter password">
   <button onclick="checkPass()">Unlock</button>
 </div>
 
@@ -100,8 +39,9 @@
 <div class="screen" id="s4">
   <div class="book">
     <h2>The Beginning</h2>
-    <p style="margin-top:20px">
-      It started with small moments… conversations that felt easy, smiles that felt safe, and a connection that quietly grew into love.
+    <p>
+      It started with small moments… conversations that felt easy,
+      smiles that felt safe, and a connection that quietly grew into love.
     </p>
   </div>
   <button class="bottom-right" onclick="next(5)">Open Next Page 📖</button>
@@ -122,28 +62,21 @@
 <!-- SCREEN 6 -->
 <div class="screen" id="s6">
   <h2>Memories</h2>
-  <div class="card-container">
-    <!-- 16 image placeholders -->
-    <script>
-      for(let i=1;i<=16;i++){
-        document.write(`<div class='card'>Memory ${i}</div>`)
-      }
-    </script>
-  </div>
+  <div class="card-container" id="memoryCards"></div>
   <button class="bottom-right" onclick="next(7)">Open Next Page 📖</button>
 </div>
 
 <!-- SCREEN 7 -->
 <div class="screen" id="s7">
   <h2>365 Days With You</h2>
-  <p style="margin-top:20px">Here, Every day felt like home</p>
+  <p>Here, Every day felt like home</p>
   <button class="bottom-right" onclick="next(8)">Open Next Page 📖</button>
 </div>
 
 <!-- SCREEN 8 -->
 <div class="screen" id="s8">
   <h2>What You Gave Me</h2>
-  <div class="fade-list" id="list">
+  <div class="fade-list">
     <span style="animation-delay:0s">Love</span>
     <span style="animation-delay:1s">Safety</span>
     <span style="animation-delay:2s">Smiles</span>
@@ -156,60 +89,16 @@
 <div class="screen" id="s9">
   <h2>This is just the beginning…</h2>
   <p>I promise to choose you every day.</p>
-  <p style="margin-top:10px">One year done… infinity to go ♾️</p>
-  <div id="finalMsg" style="margin-top:30px;display:none">
+  <p>One year done… infinity to go ♾️</p>
+
+  <div id="finalMsg">
     <h1>Happy ONE YEAR ANNIVERSARY, MY LOVE ❤️</h1>
   </div>
+
   <button class="bottom-right" onclick="replay()">Replay 🔁➰</button>
 </div>
 
-<script>
-  const screens = document.querySelectorAll('.screen');
-  const music = document.getElementById('bgMusic');
-
-  function show(id){
-    screens.forEach(s=>s.classList.remove('active'));
-    document.getElementById('s'+id).classList.add('active');
-    if(id>=4) music.play();
-    if(id===9){
-      petals();
-      setTimeout(()=>document.getElementById('finalMsg').style.display='block',2000);
-    }
-  }
-  function next(id){show(id)}
-  function checkPass(){
-    if(document.getElementById('pass').value===PASSWORD) show(3);
-    else alert('Wrong password');
-  }
-  function replay(){
-    music.currentTime=0;
-    show(3);
-  }
-
-  // countdown
-  setInterval(()=>{
-    const now=new Date();
-    const diff=UNLOCK_DATE-now;
-    if(diff<=0){show(2)}
-    else{
-      const h=Math.floor(diff/36e5);
-      const m=Math.floor(diff%36e5/6e4);
-      const s=Math.floor(diff%6e4/1000);
-      document.getElementById('timer').innerText=`${h}h ${m}m ${s}s`;
-    }
-  },1000);
-
-  function petals(){
-    for(let i=0;i<25;i++){
-      const p=document.createElement('div');
-      p.className='petal';
-      p.innerText='🌹';
-      p.style.left=Math.random()*100+'vw';
-      p.style.animationDuration=5+Math.random()*5+'s';
-      document.body.appendChild(p);
-    }
-  }
-</script>
+<!-- JS -->
+<script src="script.js"></script>
 </body>
 </html>
-
