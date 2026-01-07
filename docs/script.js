@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   for(let i=1;i<=14;i++){
     const img = document.createElement('img');
-    img.src = `memories/m${i}.jpg`;
+    img.src = `m${i}.jpg`;   // ✅ ROOT PATH
     img.alt = `Memory ${i}`;
     track.appendChild(img);
   }
@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // duplicate for infinite scroll
   for(let i=1;i<=14;i++){
     const img = document.createElement('img');
-    img.src = `memories/m${i}.jpg`;
+    img.src = `m${i}.jpg`;   // ✅ ROOT PATH
     img.alt = `Memory ${i}`;
     track.appendChild(img);
   }
