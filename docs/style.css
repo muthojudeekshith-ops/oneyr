@@ -111,7 +111,7 @@ input{
 .memory-track{
   display:flex;
   gap:20px;
-  animation:memScrollRTL 45s linear infinite;
+  animation:memScrollRTL 25s linear infinite;
 }
 
 .memory-track img{
