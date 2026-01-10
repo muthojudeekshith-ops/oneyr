@@ -1,5 +1,5 @@
 /* CONFIG */
-const UNLOCK_DATE = new Date('2026-04-20T00:00:00');
+const UNLOCK_DATE = new Date('2026-01-10T00:00:00');
 const PASSWORD = 'c5d9m';
 let unlocked = false;
 
