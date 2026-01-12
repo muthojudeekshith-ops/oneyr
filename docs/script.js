@@ -1,8 +1,8 @@
 const screens = document.querySelectorAll('.screen');
 const music = document.getElementById('bgMusic');
 
-const PASSWORD = "c5d9";
-const UNLOCK_DATE = new Date("2026-04-20T00:00:00");
+const PASSWORD = "c5d9h";
+const UNLOCK_DATE = new Date("2026-01-10T00:00:00");
 
 function nextScreen(id){
   screens.forEach(s=>s.classList.remove('active'));
