@@ -23,23 +23,28 @@ function replay(){
   nextScreen(3);
 }
 
-let unlocked = false;
+let countdownStarted = true;
 
-const timerInterval = setInterval(()=>{
+const timerInterval = setInterval(() => {
+
+  // 🔐 Countdown ONLY on screen 1
+  const screen1Active = document.getElementById('s1').classList.contains('active');
+  if (!screen1Active) return;
+
   const diff = UNLOCK_DATE - new Date();
 
-  if(diff <= 0 && !unlocked){
-    unlocked = true;
-    clearInterval(timerInterval);   // 🔴 STOP countdown
-    nextScreen(2);                  // ✅ Go to password ONCE
+  if (diff <= 0) {
+    clearInterval(timerInterval);   // 🛑 STOP forever
+    countdownStarted = false;
+    nextScreen(2);                  // 🔓 Go to password ONCE
+    return;
   }
 
-  if(diff > 0){
-    const h = Math.floor(diff/36e5);
-    const m = Math.floor(diff%36e5/6e4);
-    const s = Math.floor(diff%6e4/1000);
-    document.getElementById('timer').innerText = `${h}h ${m}m ${s}s`;
-  }
-},1000);
+  const h = Math.floor(diff / 36e5);
+  const m = Math.floor((diff % 36e5) / 6e4);
+  const s = Math.floor((diff % 6e4) / 1000);
 
+  document.getElementById('timer').innerText =
+    `${h}h ${m}m ${s}s`;
 
+}, 1000);
