@@ -18,6 +18,20 @@ function checkPass(){
   }
 }
 
+function startPetals(){
+  for(let i=0;i<30;i++){
+    const petal = document.createElement("div");
+    petal.className = "petal";
+    petal.innerText = "🌹";
+    petal.style.left = Math.random()*100 + "vw";
+    petal.style.animationDuration = (5 + Math.random()*5) + "s";
+    document.body.appendChild(petal);
+
+    // auto remove after fall
+    setTimeout(()=>petal.remove(),10000);
+  }
+}
+
 function replay(){
   music.currentTime = 0;
   nextScreen(3);
@@ -48,3 +62,16 @@ const timerInterval = setInterval(() => {
     `${h}h ${m}m ${s}s`;
 
 }, 1000);
+function startPetals(){
+  for(let i=0;i<30;i++){
+    const petal = document.createElement("div");
+    petal.className = "petal";
+    petal.innerText = "🌹";
+    petal.style.left = Math.random()*100 + "vw";
+    petal.style.animationDuration = (5 + Math.random()*5) + "s";
+    document.body.appendChild(petal);
+
+    // auto remove after fall
+    setTimeout(()=>petal.remove(),10000);
+  }
+}
