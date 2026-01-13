@@ -1,6 +1,6 @@
 /* CONFIG */
-const UNLOCK_DATE = new Date('2026-01-10T00:00:00');
-const PASSWORD = 'c5d9h';
+const UNLOCK_DATE = new Date('2026-04-20T00:00:00');
+const PASSWORD = 'c5d9';
 let unlocked = false;
 
 const screens = document.querySelectorAll('.screen');
