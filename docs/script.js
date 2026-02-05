@@ -1,7 +1,13 @@
 /* CONFIG */
 const UNLOCK_DATE = new Date('2026-01-20T00:00:00');
-const PASSWORD = 'test';
-let unlocked = false;
+function checkPass(){
+  if(pass.value === PASSWORD){
+    unlocked = true;
+    show('Canvas');   // 🔥 unlock ayithe direct canvas
+  }else{
+    alert('Wrong password');
+  }
+}
 
 const screens = document.querySelectorAll('.screen');
 const music = document.getElementById('bgMusic');
