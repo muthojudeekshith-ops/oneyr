@@ -1,3 +1,4 @@
+
 /* 🔒 GLOBAL SCROLL LOCK */
 html, body{
   margin:0;
@@ -170,12 +171,3 @@ input{
 #s5 .card-container:hover{
   animation-play-state:paused;
 }
-#sCanvas{
-  padding:0;
-}
-
-#sCanvas canvas{
-  width:100vw;
-  height:100vh;
-}
-
