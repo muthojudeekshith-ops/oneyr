@@ -17,6 +17,7 @@ function show(id){
     petals();
     setTimeout(()=>finalMsg.style.display='block',2000);
   }
+  
 }
 
 function next(id){ show(id); }
@@ -28,65 +29,7 @@ function checkPass(){
   }else{
     alert('Wrong password');
   }
-}
-
-function replay(){
-  music.currentTime = 0;
-  finalMsg.style.display = 'none';
-  show(3);
-}
-
-/* Countdown */
-setInterval(()=>{
-  if(unlocked) return;
-
-  const diff = UNLOCK_DATE - new Date();
-
-  if(diff <= 0){
-    show(2);
-  }else{
-    const h = Math.floor(diff/36e5);
-    const m = Math.floor(diff%36e5/6e4);
-    const s = Math.floor(diff%6e4/1000);
-    timer.innerText = `${h}h ${m}m ${s}s`;
-  }
-},1000);
-
-/* 🌹 Petals */
-function petals(){
-  for(let i=0;i<25;i++){
-    const p = document.createElement('div');
-    p.className = 'petal';
-    p.innerText = '💐🌹';
-    p.style.left = Math.random()*100+'vw';
-    p.style.animationDuration = 5+Math.random()*5+'s';
-    document.body.appendChild(p);
-  }
-}
-
-/* 🖼️ Memories images */
-document.addEventListener('DOMContentLoaded', () => {
-
-  const track = document.getElementById('memoryTrack');
-  if(!track) return;
-
-  for(let i=1;i<=14;i++){
-    const img = document.createElement('img');
-    img.src = `m${i}.jpg`;   // ✅ ROOT PATH
-    img.alt = `Memory ${i}`;
-    track.appendChild(img);
-  }
-
-  // duplicate for infinite scroll
-  for(let i=1;i<=14;i++){
-    const img = document.createElement('img');
-    img.src = `m${i}.jpg`;   // ✅ ROOT PATH
-    img.alt = `Memory ${i}`;
-    track.appendChild(img);
-  }
-
-});
-window.requestAnimationFrame =
+  window.requestAnimationFrame =
     window.__requestAnimationFrame ||
     window.requestAnimationFrame ||
     window.webkitRequestAnimationFrame ||
@@ -232,3 +175,61 @@ var init = function () {
 var s = document.readyState;
 if (s === 'complete' || s === 'loaded' || s === 'interactive') init();
 else document.addEventListener('DOMContentLoaded', init, false);
+}
+
+function replay(){
+  music.currentTime = 0;
+  finalMsg.style.display = 'none';
+  show(3);
+}
+
+/* Countdown */
+setInterval(()=>{
+  if(unlocked) return;
+
+  const diff = UNLOCK_DATE - new Date();
+
+  if(diff <= 0){
+    show(2);
+  }else{
+    const h = Math.floor(diff/36e5);
+    const m = Math.floor(diff%36e5/6e4);
+    const s = Math.floor(diff%6e4/1000);
+    timer.innerText = `${h}h ${m}m ${s}s`;
+  }
+},1000);
+
+/* 🌹 Petals */
+function petals(){
+  for(let i=0;i<25;i++){
+    const p = document.createElement('div');
+    p.className = 'petal';
+    p.innerText = '💐🌹';
+    p.style.left = Math.random()*100+'vw';
+    p.style.animationDuration = 5+Math.random()*5+'s';
+    document.body.appendChild(p);
+  }
+}
+
+/* 🖼️ Memories images */
+document.addEventListener('DOMContentLoaded', () => {
+
+  const track = document.getElementById('memoryTrack');
+  if(!track) return;
+
+  for(let i=1;i<=14;i++){
+    const img = document.createElement('img');
+    img.src = `m${i}.jpg`;   // ✅ ROOT PATH
+    img.alt = `Memory ${i}`;
+    track.appendChild(img);
+  }
+
+  // duplicate for infinite scroll
+  for(let i=1;i<=14;i++){
+    const img = document.createElement('img');
+    img.src = `m${i}.jpg`;   // ✅ ROOT PATH
+    img.alt = `Memory ${i}`;
+    track.appendChild(img);
+  }
+
+});
