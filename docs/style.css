@@ -1,0 +1,172 @@
+/* 🔒 GLOBAL SCROLL LOCK */
+html, body{
+  margin:0;
+  padding:0;
+  height:100%;
+  overflow:hidden;
+  overscroll-behavior:none;
+  touch-action:none;
+  font-family:Georgia, serif;
+}
+
+body{
+  background:#0b0b14;
+  color:#fff;
+}
+
+.screen{
+  display:none;
+  height:100vh;
+  width:100vw;
+  padding:20px;
+  box-sizing:border-box;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  text-align:center;
+}
+
+.active{display:flex}
+
+button{
+  background:#fff;
+  color:#000;
+  border:none;
+  padding:12px 22px;
+  border-radius:25px;
+  cursor:pointer;
+  font-size:16px;
+}
+
+.bottom-right{
+  position:absolute;
+  bottom:20px;
+  right:20px;
+}
+
+.countdown{font-size:28px;margin-top:20px}
+
+input{
+  padding:12px;
+  border-radius:10px;
+  border:none;
+  text-align:center;
+  font-size:18px;
+  margin-top:15px;
+}
+
+/* Book */
+.book{
+  background:#f4f1ec;
+  color:#333;
+  width:90%;
+  max-width:600px;
+  padding:40px;
+  border-radius:10px;
+}
+
+/* Cards */
+.card-container{
+  display:flex;
+  gap:20px;
+  overflow-x:auto;
+  padding:20px;
+}
+
+.card{
+  min-width:220px;
+  background:#1a1a2e;
+  padding:20px;
+  border-radius:15px;
+}
+
+/* Fade list */
+.fade-list span{
+  display:block;
+  opacity:0;
+  animation:fadeIn 1s forwards;
+}
+
+@keyframes fadeIn{to{opacity:1}}
+
+/* 🌹 Petals */
+.petal{
+  position:absolute;
+  top:-10px;
+  font-size:18px;
+  animation:fall linear infinite;
+}
+@keyframes fall{
+  to{transform:translateY(110vh) rotate(360deg)}
+}
+
+/* 🖼️ MEMORIES – RIGHT ➝ LEFT (FIXED) */
+.memory-wrapper{
+  width:100%;
+  overflow:hidden;
+  margin-top:30px;
+}
+
+.memory-track{
+  display:flex;
+  gap:20px;
+  width:max-content;              /* 🔑 VERY IMPORTANT */
+  animation:memScrollRTL 25s linear infinite;
+}
+
+.memory-track img{
+  height:280px;
+  width:auto;
+  flex-shrink:0;                  /* 🔑 IMAGES CUT AVVAKUNDA */
+  border-radius:18px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.5);
+}
+
+/* Move EXACTLY half (because duplicated images exist) */
+@keyframes memScrollRTL{
+  from{
+    transform:translateX(0);
+  }
+  to{
+    transform:translateX(-50%);
+  }
+}
+
+/* pause on hover / touch */
+.memory-wrapper:hover .memory-track{
+  animation-play-state:paused;
+}
+
+@keyframes memScrollRTL{
+  from{transform:translateX(0)}
+  to{transform:translateX(-50%)}
+}
+
+.memory-wrapper:hover .memory-track{
+  animation-play-state:paused;
+}
+/* Screen 5 auto scroll */
+#s5 .card-container{
+  overflow:hidden;
+}
+
+#s5 .card-container{
+  animation:firstsScrollRTL 180s linear infinite;
+}
+
+/* Right ➝ Left */
+@keyframes firstsScrollRTL{
+  from{
+    transform:translateX(0);
+  }
+  to{
+    transform:translateX(-100%);
+
+    
+  }
+}
+
+/* pause on touch / hover */
+#s5 .card-container:hover{
+  animation-play-state:paused;
+}
