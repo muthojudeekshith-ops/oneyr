@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Midnight Surprise</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- 🎵 MUSIC -->
+<audio id="bgMusic" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<!-- SCREEN 1 -->
+<div class="screen active" id="s1">
+  <h1>Something special is waiting for you…</h1>
+  <div class="countdown" id="timer"></div>
+</div>
+
+<!-- SCREEN 2 -->
+<div class="screen" id="s2">
+  <h2>enter the code</h2>
+  <input id="pass" type="password" placeholder="Enter password">
+  <button onclick="checkPass()">Unlock</button>
+</div>
+
+<!-- SCREEN 3 -->
+<div class="screen" id="s3">
+  <h1>ONE YEAR, TWO HEARTS</h1>
+  <button onclick="next(4)">Open Book 📖</button>
+</div>
+
+<!-- SCREEN 4 -->
+<div class="screen" id="s4">
+  <div class="book">
+    <h2>The Beginning</h2>
+    <p>
+      It started with small moments… conversations that felt easy,
+      smiles that felt safe, and love that quietly grew.
+    </p>
+  </div>
+  <button class="bottom-right" onclick="next(5)">Open Next Page 📖</button>
+</div>
+
+<!-- SCREEN 5 -->
+<div class="screen" id="s5">
+  <h2>Our Firsts</h2>
+  <div class="card-container">
+    <div class="card">First Meet👥<br>18 Jan 2025</div>
+    <div class="card">First Hug🫂<br>11 May 2025</div>
+    <div class="card">First Kiss 😘<br>26 Aug 2025</div>
+    <div class="card">First LipLock 💋🔐<br>03 Oct 2025</div>
+  </div>
+  <button class="bottom-right" onclick="next(6)">Open Next Page 📖</button>
+</div>
+
+<!-- SCREEN 6 -->
+<div class="screen" id="s6">
+  <h2>Memories</h2>
+  <div class="memory-wrapper">
+    <div class="memory-track" id="memoryTrack"></div>
+  </div>
+  <button class="bottom-right" onclick="next(7)">Open Next Page 📖</button>
+</div>
+
+<!-- SCREEN 7 -->
+<div class="screen" id="s7">
+  <h2>365 Days With You</h2>
+  <p>Here, Every day felt like home</p>
+  <button class="bottom-right" onclick="next(8)">Open Next Page 📖</button>
+</div>
+
+<!-- SCREEN 8 -->
+<div class="screen" id="s8">
+  <h2>What You Gave Me</h2>
+  <div class="fade-list">
+    <span style="animation-delay:0s">Love</span>
+    <span style="animation-delay:1s">Safety</span>
+    <span style="animation-delay:2s">Smiles</span>
+    <span style="animation-delay:3s">Strength & Courage</span>
+    <span style="animation-delay:4s">Deep Connection & Intimacy</span>
+  </div>
+  <button class="bottom-right" onclick="next(9)">Open Next Page 📖</button>
+</div>
+
+<!-- SCREEN 9 -->
+<div class="screen" id="s9">
+  <h2>This is just the beginning…</h2>
+  <p>I promise to choose you every day.</p>
+  <p></p>
+  <span style="animation-delay:1s">𝐎𝐧𝐞 𝐲𝐞𝐚𝐫 𝐝𝐨𝐧𝐞 & 𝐈𝐧𝐟𝐢𝐧𝐢𝐭𝐲 𝐭𝐨 𝐠𝐨 </span>
+  <div id="finalMsg">
+    <h1> <span style="animation-delay:2s">ℍ𝕒𝕡𝕡𝕪 𝕆ℕ𝔼 𝕐𝔼𝔸ℝ , 𝕄𝕐 𝕃𝕆𝕍𝔼 ❤️</span> ❤️</h1>
+  </div>
+  <button class="bottom-right" onclick="replay()">𝑹̲̅𝒆̲̅𝒑̲̅𝒂̲̅𝒍̲̅𝒚̲̅ 🔁➰</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
