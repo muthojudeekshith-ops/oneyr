@@ -170,3 +170,10 @@ input{
 #s5 .card-container:hover{
   animation-play-state:paused;
 }
+
+#s9 span,
+#s9 h1,
+#s9 h2{
+  opacity:0;
+  animation:fadeIn 1s forwards;
+}
