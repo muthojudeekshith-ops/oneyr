@@ -157,7 +157,7 @@ input{
 /* Right ➝ Left */
 @keyframes firstsScrollRTL{
   from{
-    transform:translateX(10);
+    transform:translateX(0);
   }
   to{
     transform:translateX(-50%);
