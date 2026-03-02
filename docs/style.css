@@ -151,7 +151,7 @@ input{
 }
 
 #s5 .card-container{
-  animation:firstsScrollRTL 180s linear infinite;
+  animation:firstsScrollRTL 30s linear infinite;
 }
 
 /* Right ➝ Left */
