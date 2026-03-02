@@ -111,7 +111,7 @@ input{
   display:flex;
   gap:20px;
   width:max-content;              /* 🔑 VERY IMPORTANT */
-  animation:memScrollRTL 25s linear infinite;
+  animation:memScrollRTL 28s linear infinite;
 }
 
 .memory-track img{
