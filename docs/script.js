@@ -63,3 +63,18 @@ function petals(){
     document.body.appendChild(p);
   }
 }
+/* 🖼️ LOAD MEMORIES IMAGES */
+const memoryTrack = document.getElementById("memoryTrack");
+
+for (let i = 1; i <= 14; i++) {
+  const img = document.createElement("img");
+  img.src = `m${i}.jpg`;
+  memoryTrack.appendChild(img);
+}
+
+/* 🔁 Duplicate for seamless infinite scroll */
+for (let i = 1; i <= 14; i++) {
+  const img = document.createElement("img");
+  img.src = `m${i}.jpg`;
+  memoryTrack.appendChild(img);
+}
