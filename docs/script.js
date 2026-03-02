@@ -78,36 +78,8 @@ for (let i = 1; i <= 14; i++) {
   img.src = `m${i}.jpg`;
   memoryTrack.appendChild(img);
 }
-/* 📱 Mobile Swipe Navigation */
-let startX = 0;
-let endX = 0;
-let currentScreen = 1;
+/* 🔁 Duplicate Screen 5 Cards For Infinite Loop */
+const cardContainer = document.querySelector('#s5 .card-container');
 
-function getCurrentScreen() {
-  const active = document.querySelector('.screen.active');
-  return parseInt(active.id.replace('s',''));
-}
-
-document.addEventListener('touchstart', e => {
-  startX = e.changedTouches[0].screenX;
-});
-
-document.addEventListener('touchend', e => {
-  endX = e.changedTouches[0].screenX;
-  handleSwipe();
-});
-
-function handleSwipe(){
-  const diff = startX - endX;
-  currentScreen = getCurrentScreen();
-
-  // Swipe Left → Next
-  if(diff > 50 && currentScreen < 9){
-    show(currentScreen + 1);
-  }
-
-  // Swipe Right → Previous
-  if(diff < -50 && currentScreen > 1){
-    show(currentScreen - 1);
-  }
-}
+const originalCards = cardContainer.innerHTML;
+cardContainer.innerHTML += originalCards;
